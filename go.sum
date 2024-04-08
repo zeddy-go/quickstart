@@ -2,3 +2,5 @@ github.com/zeddy-go/zeddy v0.0.0-20240402094426-1912cac1135a h1:N3Z/x7hp0OTKnoco
 github.com/zeddy-go/zeddy v0.0.0-20240402094426-1912cac1135a/go.mod h1:FYZcZ3ONwDsN1n/PjN5t6r7qKCI7oAVvmTLCXdS38+c=
 github.com/zeddy-go/zeddy v0.0.0-20240408023852-2dd25a0b5ee3 h1:OxGLs1JikBQT5eIuL9VYkxThQBZRrfafEWDR8MWxCF8=
 github.com/zeddy-go/zeddy v0.0.0-20240408023852-2dd25a0b5ee3/go.mod h1:yyYcXC+KZizgTX3a/gW7NfAuZJfZC5FlVraMXLs+5iM=
+github.com/zeddy-go/zeddy v0.0.0-20240408060159-cf42751269f6 h1:HZ9RgNZHwDXKizqaoUmC97cyUe1o7Q31tx4R8HEoshM=
+github.com/zeddy-go/zeddy v0.0.0-20240408060159-cf42751269f6/go.mod h1:yyYcXC+KZizgTX3a/gW7NfAuZJfZC5FlVraMXLs+5iM=
