@@ -2,13 +2,20 @@ package main
 
 import (
 	"github.com/zeddy-go/zeddy/app"
+	"github.com/zeddy-go/zeddy/config"
+	"github.com/zeddy-go/zeddy/database/migrate"
+	"github.com/zeddy-go/zeddy/database/wgorm"
 	"github.com/zeddy-go/zeddy/http/ginx"
 	"log/slog"
+	conf "quickstart/config"
 	"quickstart/module/user"
 )
 
 func main() {
 	app.Use(
+		config.NewModule(config.WithContent(conf.Config)),
+		wgorm.NewModule(),
+		migrate.NewModule(),
 		ginx.NewModule(),
 		user.NewModule(),
 	)

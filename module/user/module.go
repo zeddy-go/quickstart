@@ -4,7 +4,10 @@ import (
 	"github.com/zeddy-go/zeddy/container"
 	"github.com/zeddy-go/zeddy/contract"
 	"github.com/zeddy-go/zeddy/module"
+	"quickstart/module/user/domain"
 	"quickstart/module/user/iface/http"
+	"quickstart/module/user/infra/migration"
+	"quickstart/module/user/infra/repo"
 )
 
 func NewModule() *Module {
@@ -23,12 +26,24 @@ func (m Module) Init() (err error) {
 		return
 	}
 
+	err = container.Invoke(migration.RegisterMigration)
+	if err != nil {
+		return
+	}
+
+	err = container.Bind[domain.IUserRepo](repo.NewUserRepo)
+	if err != nil {
+		return
+	}
+
 	return
 }
 
 func (m Module) Boot() (err error) {
 	err = container.Invoke(func(r contract.IRouter, userHandler *http.UserHandler) {
 		r.GET("/hello", userHandler.Hello)
+		r.POST("/api/users", userHandler.Create)
+		r.GET("/api/users/:id", userHandler.Detail)
 	})
 	if err != nil {
 		return
