@@ -2,10 +2,10 @@ package main
 
 import (
 	"github.com/zeddy-go/zeddy/app"
-	"github.com/zeddy-go/zeddy/httpx/ginx"
 	"github.com/zeddy-go/zeddy/config"
 	"github.com/zeddy-go/zeddy/database/migrate"
 	"github.com/zeddy-go/zeddy/database/wgorm"
+	"github.com/zeddy-go/zeddy/httpx/ginx"
 	"log/slog"
 	"quickstart/conf"
 	"quickstart/module/user"
