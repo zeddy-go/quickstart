@@ -8,7 +8,7 @@ import (
 	"quickstart/module/user/infra/model"
 )
 
-func NewUserRepo(db *gorm.DB) domain.IUserRepo {
+func NewUserRepo(db *gorm.DB) domain.UserRepo {
 	r := &UserRepository{}
 	r.IRepository = wgorm.NewRepository[model.User, domain.User](db)
 	return r

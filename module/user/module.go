@@ -5,6 +5,7 @@ import (
 	"github.com/zeddy-go/zeddy/container"
 	"github.com/zeddy-go/zeddy/httpx/ginx"
 	"quickstart/module/user/domain"
+	"quickstart/module/user/domain/svc"
 	"quickstart/module/user/iface/http"
 	"quickstart/module/user/infra/migration"
 	"quickstart/module/user/infra/repo"
@@ -31,7 +32,12 @@ func (m Module) Init() (err error) {
 		return
 	}
 
-	err = container.Bind[domain.IUserRepo](repo.NewUserRepo)
+	err = container.Bind[domain.UserRepo](repo.NewUserRepo)
+	if err != nil {
+		return
+	}
+
+	err = container.Bind[*svc.User](svc.NewUserService)
 	if err != nil {
 		return
 	}

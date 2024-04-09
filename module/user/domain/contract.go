@@ -5,6 +5,6 @@ import (
 	"gorm.io/gorm"
 )
 
-type IUserRepo interface {
+type UserRepo interface {
 	database.IRepository[User, *gorm.DB]
 }
