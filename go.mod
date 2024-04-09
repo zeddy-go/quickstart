@@ -3,7 +3,7 @@ module quickstart
 go 1.21.8
 
 require (
-	github.com/zeddy-go/zeddy v0.0.0-20240409023903-8ebb198e8c82
+	github.com/zeddy-go/zeddy v0.0.0-20240409073236-6abd7d4863fe
 	gorm.io/gorm v1.25.5
 )
 

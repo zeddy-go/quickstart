@@ -7,7 +7,7 @@ import (
 	"github.com/zeddy-go/zeddy/database/migrate"
 	"github.com/zeddy-go/zeddy/database/wgorm"
 	"log/slog"
-	conf "quickstart/config"
+	"quickstart/conf"
 	"quickstart/module/user"
 )
 
