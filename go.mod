@@ -2,7 +2,7 @@ module quickstart
 
 go 1.21.8
 
-require github.com/zeddy-go/zeddy v0.0.0-20240409021012-88d5b35abad6
+require github.com/zeddy-go/zeddy v0.0.0-20240409021852-f1f969a92921
 
 require (
 	github.com/bytedance/sonic v1.9.1 // indirect
