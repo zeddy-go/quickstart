@@ -1,9 +1,9 @@
 package user
 
 import (
+	"github.com/zeddy-go/zeddy/app"
 	"github.com/zeddy-go/zeddy/container"
-	"github.com/zeddy-go/zeddy/contract"
-	"github.com/zeddy-go/zeddy/module"
+	"github.com/zeddy-go/zeddy/httpx/ginx"
 	"quickstart/module/user/iface/http"
 )
 
@@ -14,7 +14,7 @@ func NewModule() *Module {
 }
 
 type Module struct {
-	module.BaseModule
+	app.IsModule
 }
 
 func (m Module) Init() (err error) {
@@ -27,7 +27,7 @@ func (m Module) Init() (err error) {
 }
 
 func (m Module) Boot() (err error) {
-	err = container.Invoke(func(r contract.IRouter, userHandler *http.UserHandler) {
+	err = container.Invoke(func(r ginx.Router, userHandler *http.UserHandler) {
 		r.GET("/hello", userHandler.Hello)
 	})
 	if err != nil {

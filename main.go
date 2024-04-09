@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/zeddy-go/zeddy/app"
-	"github.com/zeddy-go/zeddy/http/ginx"
+	"github.com/zeddy-go/zeddy/httpx/ginx"
 	"log/slog"
 	"quickstart/module/user"
 )
