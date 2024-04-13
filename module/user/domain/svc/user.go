@@ -1,7 +1,6 @@
 package svc
 
 import (
-	"github.com/zeddy-go/zeddy/database"
 	"quickstart/module/user/domain"
 )
 
@@ -20,5 +19,5 @@ func (uh *User) Create(user *domain.User) (err error) {
 }
 
 func (uh *User) Detail(id uint64) (user *domain.User, err error) {
-	return uh.userRepo.First(database.Condition{"id", id})
+	return uh.userRepo.First([]any{"id", id})
 }
