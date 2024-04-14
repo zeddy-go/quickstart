@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package quickstart;
+option go_package="./pb";
+
+service UserSvc {
+  rpc Create(User) returns (ID);
+  rpc Detail(ID) returns (User);
+}
+
+message ID {
+  uint64 id = 1;
+}
+
+message User {
+  uint64 id = 1;
+  string username = 2;
+  string password = 3;
+}

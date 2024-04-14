@@ -4,11 +4,14 @@ import (
 	"github.com/zeddy-go/zeddy/app"
 	"github.com/zeddy-go/zeddy/container"
 	"github.com/zeddy-go/zeddy/httpx/ginx"
+	"google.golang.org/grpc"
 	"quickstart/module/user/domain"
 	"quickstart/module/user/domain/svc"
+	grpc2 "quickstart/module/user/iface/grpc"
 	"quickstart/module/user/iface/http"
 	"quickstart/module/user/infra/migration"
 	"quickstart/module/user/infra/repo"
+	"quickstart/pb"
 )
 
 func NewModule() *Module {
@@ -42,6 +45,11 @@ func (m Module) Init() (err error) {
 		return
 	}
 
+	err = container.Bind[*grpc2.UserSrv](grpc2.NewUserSvc)
+	if err != nil {
+		return
+	}
+
 	return
 }
 
@@ -54,6 +62,11 @@ func (m Module) Boot() (err error) {
 	if err != nil {
 		return
 	}
+
+	err = container.Invoke(func(s *grpc.Server, svc *grpc2.UserSrv) error {
+		pb.RegisterUserSvcServer(s, svc)
+		return nil
+	})
 
 	return
 }

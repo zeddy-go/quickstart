@@ -6,6 +6,7 @@ import (
 	"github.com/zeddy-go/zeddy/database/migrate"
 	"github.com/zeddy-go/zeddy/database/wgorm"
 	"github.com/zeddy-go/zeddy/httpx/ginx"
+	"github.com/zeddy-go/zeddy/httpx/grpcx"
 	"log/slog"
 	"quickstart/conf"
 	"quickstart/module/user"
@@ -17,6 +18,7 @@ func main() {
 		wgorm.NewModule(),
 		migrate.NewModule(),
 		ginx.NewModule(),
+		grpcx.NewModule(),
 		user.NewModule(),
 	)
 	err := app.StartAndWait()
