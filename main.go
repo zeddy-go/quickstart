@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/zeddy-go/zeddy/app"
-	"github.com/zeddy-go/zeddy/config"
+	"github.com/zeddy-go/zeddy/configx"
 	"github.com/zeddy-go/zeddy/database/migrate"
 	"github.com/zeddy-go/zeddy/database/wgorm"
 	"github.com/zeddy-go/zeddy/httpx/ginx"
@@ -13,7 +13,7 @@ import (
 
 func main() {
 	app.Use(
-		config.NewModule(config.WithContent(conf.Config)),
+		configx.NewModule(configx.WithContent(conf.Config)),
 		wgorm.NewModule(),
 		migrate.NewModule(),
 		ginx.NewModule(),
