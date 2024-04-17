@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/zeddy-go/zeddy/app"
-	"github.com/zeddy-go/zeddy/config"
+	"github.com/zeddy-go/zeddy/configx"
 	"github.com/zeddy-go/zeddy/httpx/ginx"
 	"log/slog"
 	"quickstart/conf"
@@ -11,7 +11,7 @@ import (
 
 func main() {
 	app.Use(
-		config.NewModule(config.WithContent(conf.Config)),
+		configx.NewModule(configx.WithContent(conf.Config)),
 		ginx.NewModule(),
 		user.NewModule(),
 	)
