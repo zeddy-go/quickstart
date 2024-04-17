@@ -9,6 +9,7 @@ import (
 	"quickstart/module/user/iface/http"
 	"quickstart/module/user/infra/migration"
 	"quickstart/module/user/infra/repo"
+	"quickstart/module/user/infra/seed"
 )
 
 func NewModule() *Module {
@@ -27,11 +28,6 @@ func (m Module) Init() (err error) {
 		return
 	}
 
-	err = container.Invoke(migration.RegisterMigration)
-	if err != nil {
-		return
-	}
-
 	err = container.Bind[domain.UserRepo](repo.NewUserRepo)
 	if err != nil {
 		return
@@ -41,6 +37,9 @@ func (m Module) Init() (err error) {
 	if err != nil {
 		return
 	}
+
+	app.RegisterMigrates(migration.MigrateFs)
+	app.RegisterSeeds(seed.SeedUser)
 
 	return
 }
