@@ -2,7 +2,7 @@ package repo
 
 import (
 	"github.com/zeddy-go/zeddy/database"
-	"github.com/zeddy-go/zeddy/database/wgorm"
+	"github.com/zeddy-go/zeddy/database/gormx"
 	"gorm.io/gorm"
 	"quickstart/module/user/domain"
 	"quickstart/module/user/infra/model"
@@ -10,7 +10,7 @@ import (
 
 func NewUserRepo(db *gorm.DB) domain.UserRepo {
 	r := &UserRepository{}
-	r.IRepository = wgorm.NewRepository[model.User, domain.User](db)
+	r.IRepository = gormx.NewRepository[model.User, domain.User](db)
 	return r
 }
 
