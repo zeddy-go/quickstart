@@ -1,9 +1,9 @@
 package model
 
-import "github.com/zeddy-go/zeddy/database/wgorm"
+import "github.com/zeddy-go/zeddy/database/gormx"
 
 type User struct {
-	wgorm.CommonField
+	gormx.CommonField
 	Username string
 	Password string
 }
