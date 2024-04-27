@@ -15,5 +15,5 @@ func NewUserRepo(db *gorm.DB) domain.UserRepo {
 }
 
 type UserRepository struct {
-	database.IRepository[domain.User, *gorm.DB]
+	database.IRepository[domain.User]
 }
